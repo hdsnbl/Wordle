@@ -2,6 +2,24 @@ const getTargetWord = (wordle) => wordle.targetWord;
 const getGuesses = (wordle) => wordle.guesses;
 const getWordle = () => new Wordle();
 
+console.log("Input your guess");
+
+const readline = require('readline');
+
+// Create the terminal interface
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Ask the question
+rl.question('What is your name? ', (answer) => {
+  console.log(`Hello, ${answer}!`);
+  
+  // Crucial: Close the interface so the program can exit
+  rl.close();
+});
+
 class Wordle {
   constructor() {
     this.targetWord = "GAMES";
@@ -24,6 +42,13 @@ class Wordle {
     this.guesses.push(guess);
   }
 
+  changeTargetWord(newWord) {
+    if (newWord.length !== 5) {
+      console.log("Target word must be 5 letters long.");
+      return;
+    }
+    this.targetWord = newWord;
+  }
 }
 
 // function askForGuess(wordle) {
@@ -33,44 +58,44 @@ class Wordle {
 // askForGuess(new Wordle());
 
 
-const readline = require('node:readline');
+// const readline = require('node:readline');
 
-// Create the interface connecting to standard input and output
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// // Create the interface connecting to standard input and output
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
-// Prompt the user with a question
-rl.question("What is your name? ", (answer) => {
-  console.log(`Hello, ${answer}!`);
+// // Prompt the user with a question
+// rl.question("What is your name? ", (answer) => {
+//   console.log(`Hello, ${answer}!`);
   
-  // Always close the interface when done to prevent memory leaks
-  rl.close();
-});
-rl.question("What is your name? ", function(answer) {
-  console.log(`Hello, ${answer}!`);
+//   // Always close the interface when done to prevent memory leaks
+//   rl.close();
+// });
+// rl.question("What is your name? ", function(answer) {
+//   console.log(`Hello, ${answer}!`);
   
-  // Always close the interface when done to prevent memory leaks
-  rl.close();
-});
-rl.on("close", function() {
-    console.log("\nBYE BYE !!!");
-    process.exit(0);
-});
+//   // Always close the interface when done to prevent memory leaks
+//   rl.close();
+// });
+// rl.on("close", function() {
+//     console.log("\nBYE BYE !!!");
+//     process.exit(0);
+// });
 
 
-function getWordle() {    //Can also be written as: const getWordle = () => new Wordle();
-  return new Wordle();
-}
+// function getWordle() {    //Can also be written as: const getWordle = () => new Wordle();
+//   return new Wordle();
+// }
 
-function getTargetWord(wordle) {
-  return wordle.targetWord;
-}
+// function getTargetWord(wordle) {
+//   return wordle.targetWord;
+// }
 
-function getGuesses(wordle) {
-  return wordle.guesses;
-}
+// function getGuesses(wordle) {
+//   return wordle.guesses;
+// }
 
 
 // console.log("%cThis is for red text", "color: red; font-size: 20px;");
