@@ -4,16 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wordle Game</title>
-  <link rel="stylesheet" href="wordle.css" />
+  <link rel="stylesheet" href="wordleHTML.css" />
 </head>
 <body>
   <h1>Wordle Game</h1>
   <div id="game-container">
     <div id="guesses-container"></div>
     <input type="text" id="guess-input" maxlength="5" minlength="5" />
-    <button id="submit-guess">Submit Guess</button>
+    <button id="submit-guess" onclick="submitGuess()">Submit Guess</button>
     <p id="message"></p>
   </div>
+  <grid id="grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 20px;"> 
+    <div className="letterBox">box</div>
+    <div className="letterBox">box</div>
+    <div className="letterBox">box</div>
+    <div className="letterBox">box</div>
+    <div className="letterBox">box</div>
+    <div className="letterBox">box</div>
+  </grid>
   <script src="wordleHTML.js"></script>
 </body>
 </html>
