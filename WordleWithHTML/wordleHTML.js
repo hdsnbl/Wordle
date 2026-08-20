@@ -4,9 +4,13 @@ function showAlert(){
 }
 
 function submitGuess() {
-  showAlert();
+  //showAlert();
   const element = document.getElementById("submit-guess");
   const guessInput = document.getElementById("guess-input");
+  if (guessInput.value.length !== 5) {
+    alert("Please enter a 5-letter word.");
+    return;
+  }
   element.textContent= "Guess submitted!";
 
 }
